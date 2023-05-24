@@ -1,11 +1,8 @@
-import React from 'react';
-import { render } from '@testing-library/react';
-
-import Index from '../pages/index';
+import { main } from '../server/server';
 
 describe('Index', () => {
-  it('should render successfully', () => {
-    const { baseElement } = render(<Index />);
-    expect(baseElement).toBeTruthy();
+  it('inits custom server for testing', async () => {
+    const server = await main();
+    expect(server).toBeTruthy();
   });
 });
